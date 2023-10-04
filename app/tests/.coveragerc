@@ -1,0 +1,11 @@
+[run]
+omit =
+    app/__init__.py,
+    app/tests/*,
+    app/models/*.__str__
+
+[html]
+directory = app/tests/htmlcov
+
+[term]
+directory = app/tests

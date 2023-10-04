@@ -1,0 +1,15 @@
+
+ 
+SECRET_KEY = 's3cr3t'
+TOKEN_EXPIRES = 10
+
+PROPAGATE_EXCEPTIONS = True
+
+# Database configuration
+SQLALCHEMY_DATABASE_URI = 'postgresql://user:password@localhost:2345/test'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+SHOW_SQLALCHEMY_LOG_MESSAGES = True
+
+ERROR_404_HELP = False
+
+TESTING = True

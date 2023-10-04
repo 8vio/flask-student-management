@@ -1,0 +1,42 @@
+version: '3.5'
+services:
+
+  student-management:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    container_name: postgres-students
+    environment:
+      POSTGRES_USER: studentmgt-user
+      POSTGRES_PASSWORD: studentmgt-password
+      POSTGRES_DB: flaskstudentsmgt
+    ports:
+      - 5432:5432
+    volumes:
+      - flaskstudentsmgt_db:/var/lib/postgresql/data
+
+  postgres-test:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test
+    ports:
+      - "2345:5432"
+    volumes:
+      - test_db:/var/lib/postgresql-test/data
+    # depends_on:
+    #   - student-management
+
+volumes:
+  flaskstudentsmgt_db:
+  test_db:
